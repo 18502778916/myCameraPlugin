@@ -29,3 +29,7 @@ error=>alert("失败")
 使用cordova插件时。请先↓
 
 declare let cordova: any;
+
+因为没有集成钩子文件，插件集成后可能会遇到R文件引用错误。
+
+使用AndroidStudio导入项目自动Build即可。
