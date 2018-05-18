@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova.plugin.myCameraPlugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>myCameraPlugin</name>
+	<js-module name="myCameraPlugin" src="www/myCameraPlugin.js">
+		<clobbers target="cordova.plugins.myCameraPlugin" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="myCameraPlugin">
+				<param name="android-package" value="com.jinan.mycamera.myCameraPlugin" />
+			</feature>
+			<feature name="TCamera">
+				<param name="android-package" value="com.jinan.mycamera.TCamera" />
+			</feature>
+	</config-file>
+
+	<config-file target="AndroidManifest.xml" parent="/*">
+		<uses-permission android:name="android.permission.CAMERA" />
+    	<uses-permission android:name="android.permission.FLASHLIGHT" />
+    	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	</config-file>
+	<config-file parent="/*" target="AndroidManifest.xml">
+		
+	</config-file>
+
+	<config-file target="AndroidManifest.xml" parent="/manifest/application">
+    		<activity android:name="me.zhouzhuo810.cameracardcrop.CropActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.jinan.mycamera.TCamera"/>
+		</config-file>
+	<source-file src="src/android/myCameraPlugin.java" target-dir="src/com/jinan/mycamera" />
+	<source-file src="src/android/TCamera.java" target-dir="src/com/jinan/mycamera" />
+	<source-file src="layout/t_camera.xml" target-dir="res/layout" />
+	<framework src="me.zhouzhuo810.cameracardcrop:camera-card-crop:1.0.2"></framework>
+</platform>
+</plugin>
